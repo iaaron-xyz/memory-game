@@ -1,8 +1,7 @@
 # Game of memory cards
-## About the Application Game
-In this game you must select a different card every turn.
-### Game Rules
-1. In this game you must choose a card among other cards.
-2. The cards get shuffled and you must select a new card. Different from the one you selected before.
-3. Each time the player chooses a card different from those chosen previously, He/she earns one point.
-4. If the player pick a card previously selected, the player loses.
+## About the Game
+- Every turn, you must choose 1 card among a group of them; you can choose anyone you like.
+- Once you pick one, all the cards get shuffled, including the picked one.
+- You must choose another card that is different from the previous one.
+- Once a card is selected, the player can't select it again during the rest of the game.
+- If you repeat a card, you lose.
