@@ -3,7 +3,7 @@ import Record from "./Record"
 
 const TopPart = () => {
   return (
-    <div>
+    <div className="flex p-6">
       <Logo />
       <Record />
     </div>

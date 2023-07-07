@@ -1,7 +1,7 @@
 
 const Record = () => {
   return (
-    <div>Record</div>
+    <div className="ml-auto">Record</div>
   )
 }
 
