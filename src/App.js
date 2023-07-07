@@ -1,8 +1,9 @@
+import TopPart from "./Components/TopPart/TopPart";
 
 function App() {
   return (
     <div className="App">
-      <h1>Memory game</h1>
+      <TopPart />
     </div>
   );
 }
