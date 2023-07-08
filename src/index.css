@@ -7,7 +7,11 @@
   * {
     box-sizing: border-box;
   }
+  html, body, #root {
+    height: 100%;
+  }
   body {
+    height: 100%;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -15,8 +19,26 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
+
+  /* Document elements styles */
+  .card {
+    height: 200px;
+    width: 120px;
+    border: 1px solid purple;
+    /* center the content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .btn-help {
+    background: rgb(92, 158, 233);
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    /* center the content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
