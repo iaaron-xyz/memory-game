@@ -2,9 +2,17 @@
 const CardsGrid = () => {
   return (
     <div className="cards-grid grid grid-cols-3 place-items-center gap-4 bg-pink-400">
-      <div className="card">Card 1</div>
-      <div className="card">Card 2</div>
-      <div className="card">Card 3</div>
+      <Card number="1" />
+      <Card number="2" />
+      <Card number="3" />
+    </div>
+  )
+}
+
+const Card = ({number}) => {
+  return (
+    <div className="card">
+      Card {number}
     </div>
   )
 }
