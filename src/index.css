@@ -25,8 +25,7 @@
 
   /* Document elements styles */
   .card {
-    height: 200px;
-    width: 120px;
+    width: 200px;
     border: 1px solid purple;
     /* center the content */
     display: flex;

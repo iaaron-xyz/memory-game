@@ -1,18 +1,22 @@
+import cards from '../../data';
 
 const CardsGrid = () => {
+  const numCards = cards.length;
   return (
-    <div className="cards-grid grid grid-cols-3 place-items-center gap-4 bg-pink-400">
-      <Card number="1" />
-      <Card number="2" />
-      <Card number="3" />
+    <div className={`cards-grid grid grid-cols-${numCards} gap-4 bg-pink-400`}>
+      {cards.map((card) => {
+        return (
+          <Card key={card.id} imgPath={card.img} name={card.name}/>
+        )
+      })}
     </div>
   )
 }
 
-const Card = ({number}) => {
+const Card = ({imgPath, name}) => {
   return (
     <div className="card">
-      Card {number}
+      <img src={imgPath} alt={name} />
     </div>
   )
 }
