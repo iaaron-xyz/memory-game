@@ -1,8 +1,8 @@
+import {capitalize} from '../../utils/utils'
 
 const DifficultySelection = ({setGameStatus}) => {
 
-  const handleDifficultySelection = (e) => {
-    const dialogDifficultySelection = document.getElementById('difficulty-selection');
+  const handleDifficultyBtn = (e) => {
     console.log(e.target.value);
     setGameStatus(1);
   }
@@ -13,14 +13,26 @@ const DifficultySelection = ({setGameStatus}) => {
       <div className="difficulty-selection-bg-img w-full h-full z-0"></div>
       {/* difficult selection buttons */}
       <div className="difficulty-selection flex flex-col items-center justify-center h-full text-slate-200 z-10" id="difficulty-selection">
-          <h2 className="text-6xl m-8">Choose the difficulty!</h2>
-          <div className="flex m-4 text-3xl text-slate-800">
-            <button type="button" onClick={handleDifficultySelection} className="bg-emerald-500 m-4 px-4 py-2 rounded-md hover:bg-white hover:text-black" value="easy">Easy</button>
-            <button type="button" onClick={handleDifficultySelection} className="bg-yellow-300 m-4 px-4 py-2 rounded-md hover:bg-white hover:text-black" value="medium">Medium</button>
-            <button type="button" onClick={handleDifficultySelection} className="bg-rose-600 m-4 px-4 py-2 rounded-md hover:bg-white hover:text-black" value="hard">Hard</button>
-          </div>
+        <h2 className="text-6xl m-8">Choose the difficulty!</h2>
+        <div className="flex m-4 text-3xl text-slate-800">
+          <DifficultyButton handleDifficultyBtn={handleDifficultyBtn} difficultyLevel='easy' />
+          <DifficultyButton handleDifficultyBtn={handleDifficultyBtn} difficultyLevel='medium' />
+          <DifficultyButton handleDifficultyBtn={handleDifficultyBtn} difficultyLevel='hard' />
+        </div>
       </div>
     </>  
+  )
+}
+
+const DifficultyButton = ({handleDifficultyBtn, difficultyLevel}) => {
+  return (
+    <button 
+      type="button"
+      onClick={handleDifficultyBtn}
+      className="bg-green-500 m-4 px-4 py-2 rounded-md hover:bg-white hover:text-black"
+      value={difficultyLevel}>
+        {capitalize(difficultyLevel)}
+    </button>
   )
 }
 
