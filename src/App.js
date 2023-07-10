@@ -6,7 +6,7 @@ import DifficultySelection from "./Components/Modals/DifficultySelection";
 import GameResults from "./Components/Modals/GameResults";
 
 function App() {
-  // const [difficulty, setDifficulty] = useState(0);
+  const [difficulty, setDifficulty] = useState(0);
   // 0: difficulty-selection / 1: game-started / 2: game-finished
   const [gameStatus, setGameStatus] = useState(0);
   // 0: won game / 1: lost game / 2: no-results
@@ -17,7 +17,7 @@ function App() {
       {/* Game status */}
       {(gameStatus === 0) ? (
         // Difficulty selection modal
-        <DifficultySelection setGameStatus={setGameStatus}/>
+        <DifficultySelection setGameStatus={setGameStatus} difficulty={difficulty} DifficultySelection={setDifficulty}/>
         ) : (
           (gameStatus === 2) ? (
             // Game results after losing/winning

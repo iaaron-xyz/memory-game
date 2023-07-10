@@ -7,9 +7,6 @@
   * {
     box-sizing: border-box;
   }
-  body {
-    background: lightgreen;
-  }
   html, body, #root {
     height: 100%;
   }
@@ -21,9 +18,28 @@
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(28, 32, 41);
+    color: whitesmoke;
   }
 
   /* Document elements styles */
+  .difficulty-selection-bg-img {
+    background-image: url(https://i.redd.it/159d6ljny7g01.png);
+    
+    /* Add the blur effect */
+    filter: blur(1px);
+    -webkit-filter: blur(8px);
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: absolute;
+  }
+  .difficulty-selection {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
   .card {
     width: 200px;
     border: 1px solid purple;
@@ -31,7 +47,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
   }
   .btn-help {
     background: rgb(92, 158, 233);

@@ -1,9 +1,8 @@
 import cards from '../../data';
 
 const CardsGrid = () => {
-  const numCards = cards.length;
   return (
-    <div className={`cards-grid grid grid-cols-${numCards} gap-4 bg-pink-400`}>
+    <div className={`cards-grid grid grid-cols-4 gap-4`}>
       {cards.map((card) => {
         return (
           <Card key={card.id} imgPath={card.img} name={card.name}/>
