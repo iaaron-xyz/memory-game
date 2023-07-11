@@ -16,7 +16,7 @@
   }
   * {
     box-sizing: border-box;
-    /* border: 1px solid red; */
+    border: 1px solid red;
   }
   html, body, #root {
     height: 100%;
@@ -44,5 +44,8 @@
   .help-btn {
     height: 50px;
     width: 50px;
+  }
+  .cards-container {
+    width: 60%;
   }
 }
