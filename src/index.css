@@ -16,7 +16,7 @@
   }
   * {
     box-sizing: border-box;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
   html, body, #root {
     height: 100%;
@@ -45,7 +45,22 @@
     height: 50px;
     width: 50px;
   }
-  .cards-container {
-    width: 60%;
+  .cards-container-1 {
+    width: 100%;
+  }
+  .cards-container-1 .card {
+    height: 275px;
+    width: 200px;
+    font-size: 6rem;
+  }
+  .cards-container-2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .cards-container-2 .card {
+    height: 275px;
+    width: 200px;
+    font-size: 6rem;
   }
 }

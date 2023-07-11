@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="h-full">
       { (gameStatus) ? (
-          <MainGame numCards={numCards}/>
+          <MainGame numCards={numCards} difficulty={difficulty}/>
         ) : (
           <DifficultySelection
             setGameStatus={setGameStatus} 

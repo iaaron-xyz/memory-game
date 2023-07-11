@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import emojis from '../../data/emojis';
 
-const Board = ({numCards}) => {
+const Board = ({numCards, difficulty}) => {
 
   const [cardsInGame, setCardsInGame] = useState([]);
   
@@ -21,18 +21,32 @@ const Board = ({numCards}) => {
   }, [numCards])
 
   return (
-    <div className='grow flex flex-col justify-center items-center text-8xl bg-slate-600'>
-      {/* Num cards: {numCards} */}
-      <div className='cards-container flex justify-center items-center flex-wrap'>
-        {cardsInGame.map((cardChar) => {
-          console.log(cardChar);
-          return (
-            <div key={cardChar.code} className='justify-center items-center bg-white p-6 m-4'>
-              {cardChar.emoji}
-            </div>
-          )
-        })}
-      </div>
+    <div className='grow flex flex-col justify-center items-center'>
+      
+      {(numCards <= 6) ? (
+        <div className='cards-container-1 flex justify-center items-center flex-wrap border border-1 border-purple-800'>
+          {cardsInGame.map((cardChar) => {
+            console.log(numCards);
+            return (
+              <div key={cardChar.code} className='card flex justify-center items-center bg-white px-6 pb-4 m-4'>
+                {cardChar.emoji}
+              </div>
+            )
+          })}
+        </div>
+      ) : (
+        <div className='cards-container-2 border border-1 border-purple-800'>
+          {cardsInGame.map((cardChar) => {
+            console.log(numCards);
+            return (
+              <div key={cardChar.code} className='card flex justify-center items-center bg-white px-6 pb-4 m-4'>
+                {cardChar.emoji}
+              </div>
+            )
+          })}
+        </div>
+      )}
+      
     </div>
   )
 }

@@ -3,11 +3,11 @@ import TopBar from './TopBar'
 import Board from './Board'
 import BottomElement from './BottomElement'
 
-const MainGame = ({numCards}) => {
+const MainGame = ({numCards, difficulty}) => {
   return (
     <div className='bg-neutral flex flex-col h-full'>
       <TopBar />
-      <Board numCards={numCards}/>
+      <Board numCards={numCards} difficulty={difficulty}/>
       <BottomElement />
     </div>
   )

@@ -7,9 +7,9 @@ const DifficultySelection = ({setGameStatus, setNumCards, setDifficulty}) => {
     if (e.target.value === 'easy') {
       setNumCards(4);
     } else if (e.target.value === 'medium') {
-      setNumCards(5);
-    } else {
       setNumCards(6);
+    } else {
+      setNumCards(8);
     }
     
     setDifficulty(e.target.value);
