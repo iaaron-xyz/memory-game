@@ -8,7 +8,7 @@ function App() {
   const [difficulty, setDifficulty] = useState(''); 
 
   return (
-    <>
+    <div className="h-full">
       { (gameStatus) ? (
           <MainGame numCards={numCards}/>
         ) : (
@@ -17,7 +17,7 @@ function App() {
             setNumCards={setNumCards}
             setDifficulty={setDifficulty}/>
       )}
-    </>
+    </div>
   );
 }
 

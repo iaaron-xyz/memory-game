@@ -16,6 +16,7 @@
   }
   * {
     box-sizing: border-box;
+    /* border: 1px solid red; */
   }
   html, body, #root {
     height: 100%;
@@ -25,10 +26,23 @@
   .bg-main-color {
     background: var(--main-color);
   }
+  .bg-accent {
+    background: var(--accent-color);
+  }
+  .bg-neutral {
+    background: var(--neutral-color);
+  }
+  .text-accent-color {
+    color: var(--accent-color);
+  }
 
   .difficulty-btn {
     background-color: var(--accent-color);
     color: var(--main-color);
     font-weight: bold;
+  }
+  .help-btn {
+    height: 50px;
+    width: 50px;
   }
 }
