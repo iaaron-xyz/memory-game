@@ -21,7 +21,14 @@
     height: 100%;
   }
 
+  /* specific classes */
+  .bg-main-color {
+    background: var(--main-color);
+  }
+
   .difficulty-btn {
     background-color: var(--accent-color);
+    color: var(--main-color);
+    font-weight: bold;
   }
 }
