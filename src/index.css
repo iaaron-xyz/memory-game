@@ -4,58 +4,24 @@
 
 
 @layer base {
+
+  :root {
+    --main-color: rgb(130,70,186);
+    --accent-color: rgb(214,248,66);
+    --dark-color: rgb(31,32,36);
+    --bright-color: rgb(255, 255, 255);
+    --neutral-color: rgb(219,216,216);
+    --box-shadow: 5px 5px;
+    --border-black: 3px solid rgb(31,32,36);
+  }
   * {
     box-sizing: border-box;
   }
   html, body, #root {
     height: 100%;
   }
-  body {
-    height: 100%;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: rgb(28, 32, 41);
-    color: whitesmoke;
-  }
 
-  /* Document elements styles */
-  .difficulty-selection-bg-img {
-    background-image: url(https://i.redd.it/159d6ljny7g01.png);
-    
-    /* Add the blur effect */
-    filter: blur(1px);
-    -webkit-filter: blur(8px);
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    position: absolute;
-  }
-  .difficulty-selection {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-  .card {
-    width: 200px;
-    border: 1px solid purple;
-    /* center the content */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .btn-help {
-    background: rgb(92, 158, 233);
-    height: 50px;
-    width: 50px;
-    margin-left: auto;
-    /* center the content */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .difficulty-btn {
+    background-color: var(--accent-color);
   }
 }
