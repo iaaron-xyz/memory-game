@@ -1,4 +1,4 @@
-import {capitalize} from '../../utils/utils'
+import {capitalize} from '../../utils/capitalize'
 
 const DifficultySelection = ({setGameStatus, setNumCards, setDifficulty}) => {
 
