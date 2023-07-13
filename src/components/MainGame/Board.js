@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import emojis from '../../data/emojis';
+import getRandomSubArray from '../../utils/getRandomSubArray';
 
 const Board = ({numCards, difficulty}) => {
 
@@ -7,14 +8,8 @@ const Board = ({numCards, difficulty}) => {
   
   useEffect(() => {
     const selectCardSymbols = () => {
-      const selectedSymbols = [];
-      // const indices = [];
-
-      for (let symbol = 0; symbol < numCards; symbol += 1) {
-        selectedSymbols.push(emojis[symbol]);
-      }
-
-      setCardsInGame(selectedSymbols);
+      // select a number of sybols for cards given the difficulty/numCards
+      setCardsInGame(getRandomSubArray(emojis, numCards));
     }
 
     selectCardSymbols();
