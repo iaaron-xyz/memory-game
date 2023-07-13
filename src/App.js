@@ -4,17 +4,22 @@ import MainGame from "./components/MainGame/MainGame";
 
 function App() {
   const [gameStatus, setGameStatus] = useState(0);
-  const [numCards, setNumCards] = useState(0);
-  const [difficulty, setDifficulty] = useState(''); 
+  const [numCardsInGame, setNumCardsInGame] = useState(0);
+  const [numCardsToShow, setNumCardsToShow] = useState(0);
+  const [difficulty, setDifficulty] = useState('');
 
   return (
     <div className="h-full">
       { (gameStatus) ? (
-          <MainGame numCards={numCards} difficulty={difficulty}/>
+          <MainGame
+            numCardsInGame={numCardsInGame}
+            numCardsToShow={numCardsToShow}
+            difficulty={difficulty}/>
         ) : (
           <DifficultySelection
             setGameStatus={setGameStatus} 
-            setNumCards={setNumCards}
+            setNumCardsInGame={setNumCardsInGame}
+            setNumCardsToShow={setNumCardsToShow}
             setDifficulty={setDifficulty}/>
       )}
     </div>

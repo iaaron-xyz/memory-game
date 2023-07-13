@@ -1,15 +1,18 @@
 import {capitalize} from '../../utils/capitalize'
 
-const DifficultySelection = ({setGameStatus, setNumCards, setDifficulty}) => {
+const DifficultySelection = ({setGameStatus, setNumCardsInGame, setNumCardsToShow , setDifficulty}) => {
 
   const handleDifficultyBtn = (e) => {
     // Number of cards to display
     if (e.target.value === 'easy') {
-      setNumCards(4);
+      setNumCardsInGame(6);
+      setNumCardsToShow(4);
     } else if (e.target.value === 'medium') {
-      setNumCards(6);
+      setNumCardsInGame(8);
+      setNumCardsToShow(6);
     } else {
-      setNumCards(8);
+      setNumCardsInGame(10);
+      setNumCardsToShow(8);
     }
     
     setDifficulty(e.target.value);
