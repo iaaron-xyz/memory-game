@@ -6,6 +6,7 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
 
   const [cardsInGame, setCardsInGame] = useState([]);
   const [cardsToShow, setCardstoShow] = useState([]);
+  const [pickedCards, setPickedCards] = useState([]);
 
   const shuffleAvailableCards = (cardsList) => {
     setCardstoShow(getRandomSubArray(cardsList, numCardsToShow));
@@ -30,9 +31,7 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
         <div className='cards-container-1 flex justify-center items-center flex-wrap border border-1 border-purple-800'>
           {cardsToShow.map((cardChar) => {
             return (
-              <div key={cardChar.code} className='card flex justify-center items-center bg-white px-6 pb-4 m-4'>
-                {cardChar.emoji}
-              </div>
+              <Card key={cardChar.code} emoji={cardChar.emoji}/>
             )
           })}
         </div>
@@ -40,14 +39,20 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
         <div className='cards-container-2 border border-1 border-purple-800'>
           {cardsToShow.map((cardChar) => {
             return (
-              <div key={cardChar.code} className='card flex justify-center items-center bg-white px-6 pb-4 m-4'>
-                {cardChar.emoji}
-              </div>
+              <Card key={cardChar.code} emoji={cardChar.emoji}/>
             )
           })}
         </div>
       )}
       
+    </div>
+  )
+}
+
+const Card = ({emoji}) => {
+  return (
+    <div className='card flex justify-center items-center bg-white px-6 pb-4 m-4'>
+      {emoji}
     </div>
   )
 }

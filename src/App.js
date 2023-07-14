@@ -3,9 +3,13 @@ import DifficultySelection from "./components/DifficultySelection/DifficultySele
 import MainGame from "./components/MainGame/MainGame";
 
 function App() {
+  // game status -> 0: not-started, 1: started
   const [gameStatus, setGameStatus] = useState(0);
+  // cards the player has to choose
   const [numCardsInGame, setNumCardsInGame] = useState(0);
+  // cards to be displayed each turn
   const [numCardsToShow, setNumCardsToShow] = useState(0);
+  // easy, medium, hard
   const [difficulty, setDifficulty] = useState('');
 
   return (
