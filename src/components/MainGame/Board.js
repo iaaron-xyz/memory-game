@@ -8,8 +8,25 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
   const [cardsToShow, setCardstoShow] = useState([]);
   const [pickedCards, setPickedCards] = useState([]);
 
-  const shuffleAvailableCards = (cardsList) => {
-    setCardstoShow(getRandomSubArray(cardsList, numCardsToShow));
+  const handleCardSelection = (e) => {
+    // Check if the selected card was repeated. Finish the game if so
+    const repeatedPick = pickedCards.find(card => e.target.id === card.name);
+    if (repeatedPick) {
+      // TODO: Implement game over component
+      console.log('Game Over');
+      return;
+    }
+
+    // Else add the picked card to pickedCards
+    setPickedCards([...pickedCards, cardsInGame.find(card => e.target.id === card.name)]);
+    // Remove the picked card from available cards
+    const updatedAvailableCards = cardsInGame.filter(card => e.target.id !== card.name);
+    // Shuffle all cards (picked and non-picked) available cards
+    const newRoundCardsToShow = getRandomSubArray(updatedAvailableCards.concat(pickedCards), numCardsToShow);
+    
+    // update states and start a new round
+    setCardsInGame(updatedAvailableCards);
+    setCardstoShow(newRoundCardsToShow);
   }
 
   // Set the initial numbersa of cards to play with
@@ -31,7 +48,7 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
         <div className='cards-container-1 flex justify-center items-center flex-wrap border border-1 border-purple-800'>
           {cardsToShow.map((cardChar) => {
             return (
-              <Card key={cardChar.code} emoji={cardChar.emoji}/>
+              <Card key={cardChar.code} name={cardChar.name} emoji={cardChar.emoji} handleCardSelection={handleCardSelection}/>
             )
           })}
         </div>
@@ -39,7 +56,7 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
         <div className='cards-container-2 border border-1 border-purple-800'>
           {cardsToShow.map((cardChar) => {
             return (
-              <Card key={cardChar.code} emoji={cardChar.emoji}/>
+              <Card key={cardChar.code} emoji={cardChar.emoji} handleCardSelection={handleCardSelection}/>
             )
           })}
         </div>
@@ -49,9 +66,12 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
   )
 }
 
-const Card = ({emoji}) => {
+const Card = ({name, emoji, handleCardSelection}) => {
   return (
-    <div className='card flex justify-center items-center bg-white px-6 pb-4 m-4'>
+    <div 
+      className='card flex justify-center items-center bg-white px-6 pb-4 m-4'
+      id={name}
+      onClick={handleCardSelection}>
       {emoji}
     </div>
   )
