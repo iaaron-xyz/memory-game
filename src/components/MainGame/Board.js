@@ -103,7 +103,11 @@ const CardsContainer = ({numCardsToShow, cardsToShow, handleCardSelection}) => {
         <div className='cards-container-1 flex justify-center items-center flex-wrap border border-1 border-purple-800'>
           {cardsToShow.map((cardChar) => {
             return (
-              <Card key={cardChar.code} name={cardChar.name} emoji={cardChar.emoji} handleCardSelection={handleCardSelection}/>
+              <Card 
+                key={cardChar.code}
+                name={cardChar.name}
+                emoji={cardChar.emoji}
+                handleCardSelection={handleCardSelection}/>
             )
           })}
         </div>
@@ -111,7 +115,11 @@ const CardsContainer = ({numCardsToShow, cardsToShow, handleCardSelection}) => {
         <div className='cards-container-2 border border-1 border-purple-800'>
           {cardsToShow.map((cardChar) => {
             return (
-              <Card key={cardChar.code} name={cardChar.name} emoji={cardChar.emoji} handleCardSelection={handleCardSelection}/>
+              <Card 
+                key={cardChar.code} 
+                name={cardChar.name} 
+                emoji={cardChar.emoji} 
+                handleCardSelection={handleCardSelection}/>
             )
           })}
         </div>
@@ -123,10 +131,10 @@ const CardsContainer = ({numCardsToShow, cardsToShow, handleCardSelection}) => {
 const Card = ({name, emoji, handleCardSelection}) => {
   return (
     <div 
-      className='card flex justify-center items-center bg-white px-6 pb-4 m-4'
+      className='card flex justify-center items-center bg-white px-6 pb-4 m-4 cursor-pointer'
       id={name}
       onClick={handleCardSelection}>
-      {emoji}
+        {emoji}
     </div>
   )
 }
