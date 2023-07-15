@@ -8,6 +8,7 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
   const [cardsInGame, setCardsInGame] = useState([]);
   const [cardsToShow, setCardstoShow] = useState([]);
   const [pickedCards, setPickedCards] = useState([]);
+  const [currentGameScore, setCurrentGameScore] = useState(0);
 
   const shuffleNextRoundCards = (availableCardsArr, pickedCardsArr) => {
     const copyAvailableCardsArr = [...availableCardsArr];
@@ -51,6 +52,7 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
     console.log(updatedAvailableCards);
     if (updatedAvailableCards.length === 0) {
       // TODO: implement won game component
+      setCurrentGameScore(currentGameScore+1);
       setPickedCards(updatedPickedCards);
       setCardsInGame(updatedAvailableCards);
       console.log('You won!');
@@ -59,8 +61,8 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
 
     // Shuffle all cards (picked and non-picked) available cards
     const updatedCardsToShow = shuffleNextRoundCards(updatedAvailableCards, updatedPickedCards);
-    
     // update states and start a new round
+    setCurrentGameScore(currentGameScore+1);
     setPickedCards(updatedPickedCards);
     setCardsInGame(updatedAvailableCards);
     setCardstoShow(updatedCardsToShow);
@@ -99,6 +101,13 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
           })}
         </div>
       )}
+      <div className='text-4xl text-center'>
+        Current score:
+        <br />
+        <h3 className='text-6xl'>
+          {currentGameScore}
+        </h3>
+      </div>
       
     </div>
   )
