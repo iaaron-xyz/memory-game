@@ -84,6 +84,21 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
   return (
     <div className='grow flex flex-col justify-center items-center'>
       
+      <CardsContainer
+        numCardsToShow={numCardsToShow}
+        cardsToShow={cardsToShow}
+        handleCardSelection={handleCardSelection}/>
+      
+      <CurrentScore 
+        currentGameScore={currentGameScore} />
+      
+    </div>
+  )
+}
+
+const CardsContainer = ({numCardsToShow, cardsToShow, handleCardSelection}) => {
+  return (
+    <>
       {(numCardsToShow <= 6) ? (
         <div className='cards-container-1 flex justify-center items-center flex-wrap border border-1 border-purple-800'>
           {cardsToShow.map((cardChar) => {
@@ -101,15 +116,7 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
           })}
         </div>
       )}
-      <div className='text-4xl text-center'>
-        Current score:
-        <br />
-        <h3 className='text-6xl'>
-          {currentGameScore}
-        </h3>
-      </div>
-      
-    </div>
+    </>
   )
 }
 
@@ -120,6 +127,18 @@ const Card = ({name, emoji, handleCardSelection}) => {
       id={name}
       onClick={handleCardSelection}>
       {emoji}
+    </div>
+  )
+}
+
+const CurrentScore = ({currentGameScore}) => {
+  return (
+    <div className='text-4xl text-center'>
+      Current score:
+      <br />
+      <h3 className='text-6xl'>
+        {currentGameScore}
+      </h3>
     </div>
   )
 }
