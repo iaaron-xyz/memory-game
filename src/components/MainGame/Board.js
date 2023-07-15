@@ -15,7 +15,7 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
     // set a random integer between 1 and numCardsToShow
     const availableRandCards = Math.min(Math.floor(Math.random() * (copyAvailableCardsArr.length))+1, numCardsToShow);
     // randomize available cards
-
+    randomizeArray(copyAvailableCardsArr);
     // add a number of RandomAvailableCards of nonpicked cards to selectedCards
     for (let i = availableRandCards; i > 0; i -= 1) {
       const item = copyAvailableCardsArr.pop()
