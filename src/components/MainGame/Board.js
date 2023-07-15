@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import emojis from '../../data/emojis';
 import getRandomSubArray from '../../utils/getRandomSubArray';
+import randomizeArray from '../../utils/randomizeArray';
 
 const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
 
@@ -8,8 +9,32 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
   const [cardsToShow, setCardstoShow] = useState([]);
   const [pickedCards, setPickedCards] = useState([]);
 
+  const shuffleNextRoundCards = (availableCardsArr, pickedCardsArr) => {
+    const copyAvailableCardsArr = [...availableCardsArr];
+    let selectedCards = [];
+    // set a random integer between 1 and numCardsToShow
+    const availableRandCards = Math.min(Math.floor(Math.random() * (copyAvailableCardsArr.length))+1, numCardsToShow);
+    // randomize available cards
+
+    // add a number of RandomAvailableCards of nonpicked cards to selectedCards
+    for (let i = availableRandCards; i > 0; i -= 1) {
+      const item = copyAvailableCardsArr.pop()
+      selectedCards.push( item );
+    }
+    // complement selectedCards array if not complete
+    if (selectedCards.length < numCardsToShow) {
+      const mergedarrays = copyAvailableCardsArr.concat(pickedCardsArr);
+      const complementCards = getRandomSubArray(
+        mergedarrays,
+        numCardsToShow-selectedCards.length);
+      
+      selectedCards = selectedCards.concat(complementCards);
+    }
+    return selectedCards;
+  }
+
   const handleCardSelection = (e) => {
-    // Check if the selected card was repeated. Finish the game if so
+    // Game over if card is clicked twice
     const repeatedPick = pickedCards.find(card => e.target.id === card.name);
     if (repeatedPick) {
       // TODO: Implement game over component
@@ -17,16 +42,29 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
       return;
     }
 
-    // Else add the picked card to pickedCards
-    setPickedCards([...pickedCards, cardsInGame.find(card => e.target.id === card.name)]);
+    // Add the picked card to pickedCards
+    const updatedPickedCards = [...pickedCards, cardsInGame.find(card => e.target.id === card.name)];
     // Remove the picked card from available cards
     const updatedAvailableCards = cardsInGame.filter(card => e.target.id !== card.name);
+    
+    // The game is won if there are no more available cards to pick
+    console.log(updatedAvailableCards);
+    if (updatedAvailableCards.length === 0) {
+      // TODO: implement won game component
+      setPickedCards(updatedPickedCards);
+      setCardsInGame(updatedAvailableCards);
+      console.log('You won!');
+      return;
+    }
+
     // Shuffle all cards (picked and non-picked) available cards
-    const newRoundCardsToShow = getRandomSubArray(updatedAvailableCards.concat(pickedCards), numCardsToShow);
+    const updatedCardsToShow = shuffleNextRoundCards(updatedAvailableCards, updatedPickedCards);
     
     // update states and start a new round
+    setPickedCards(updatedPickedCards);
     setCardsInGame(updatedAvailableCards);
-    setCardstoShow(newRoundCardsToShow);
+    setCardstoShow(updatedCardsToShow);
+    
   }
 
   // Set the initial numbersa of cards to play with
@@ -56,7 +94,7 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
         <div className='cards-container-2 border border-1 border-purple-800'>
           {cardsToShow.map((cardChar) => {
             return (
-              <Card key={cardChar.code} emoji={cardChar.emoji} handleCardSelection={handleCardSelection}/>
+              <Card key={cardChar.code} name={cardChar.name} emoji={cardChar.emoji} handleCardSelection={handleCardSelection}/>
             )
           })}
         </div>
