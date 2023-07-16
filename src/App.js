@@ -3,7 +3,7 @@ import DifficultySelection from "./components/DifficultySelection/DifficultySele
 import MainGame from "./components/MainGame/MainGame";
 
 function App() {
-  // game status -> 0: not-started, 1: started
+  // game status -> 0: not-started, 1: started, 2: lost-game, 3:win-game
   const [gameStatus, setGameStatus] = useState(0);
   // cards the player has to choose
   const [numCardsInGame, setNumCardsInGame] = useState(0);
@@ -18,7 +18,8 @@ function App() {
           <MainGame
             numCardsInGame={numCardsInGame}
             numCardsToShow={numCardsToShow}
-            difficulty={difficulty}/>
+            gameStatus={gameStatus}
+            setGameStatus={setGameStatus}/>
         ) : (
           <DifficultySelection
             setGameStatus={setGameStatus} 
