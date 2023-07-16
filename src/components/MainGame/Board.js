@@ -3,12 +3,11 @@ import emojis from '../../data/emojis';
 import getRandomSubArray from '../../utils/getRandomSubArray';
 import randomizeArray from '../../utils/randomizeArray';
 
-const Board = ({numCardsInGame, numCardsToShow, setGameStatus, setShowModal}) => {
+const Board = ({numCardsInGame, numCardsToShow, setGameStatus, currentGameScore, setCurrentGameScore, setShowModal}) => {
 
   const [cardsInGame, setCardsInGame] = useState([]);
   const [cardsToShow, setCardstoShow] = useState([]);
   const [pickedCards, setPickedCards] = useState([]);
-  const [currentGameScore, setCurrentGameScore] = useState(0);
 
   const shuffleNextRoundCards = (availableCardsArr, pickedCardsArr) => {
     const copyAvailableCardsArr = [...availableCardsArr];

@@ -7,6 +7,7 @@ import Modal from './Modal'
 const MainGame = ({numCardsInGame, numCardsToShow, gameStatus, setGameStatus}) => {
 
   const [showModal, setShowModal] = useState(false);
+  const [currentGameScore, setCurrentGameScore] = useState(0);
 
   return (
     <div className='bg-neutral flex flex-col h-full'>
@@ -15,6 +16,8 @@ const MainGame = ({numCardsInGame, numCardsToShow, gameStatus, setGameStatus}) =
         numCardsInGame={numCardsInGame}
         numCardsToShow={numCardsToShow}
         setGameStatus={setGameStatus}
+        currentGameScore={currentGameScore}
+        setCurrentGameScore={setCurrentGameScore}
         setShowModal={setShowModal}/>
       <BottomElement />
       
@@ -22,7 +25,9 @@ const MainGame = ({numCardsInGame, numCardsToShow, gameStatus, setGameStatus}) =
       <Modal
         gameStatus={gameStatus}
         setGameStatus={setGameStatus}
-        setShowModal={setShowModal}/>
+        setShowModal={setShowModal}
+        numCardsInGame={numCardsInGame}
+        currentGameScore={currentGameScore}/>
       ) : (
         ''
       )}
