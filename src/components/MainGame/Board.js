@@ -101,7 +101,7 @@ const CardsContainer = ({numCardsToShow, cardsToShow, handleCardSelection}) => {
   return (
     <>
       {(numCardsToShow <= 6) ? (
-        <div className='cards-container-1 flex justify-center items-center flex-wrap border border-1 border-purple-800'>
+        <div className='cards-container-1 flex justify-center items-center flex-wrap border'>
           {cardsToShow.map((cardChar) => {
             return (
               <Card 
@@ -113,7 +113,7 @@ const CardsContainer = ({numCardsToShow, cardsToShow, handleCardSelection}) => {
           })}
         </div>
       ) : (
-        <div className='cards-container-2 border border-1 border-purple-800'>
+        <div className='cards-container-2'>
           {cardsToShow.map((cardChar) => {
             return (
               <Card 
@@ -132,7 +132,7 @@ const CardsContainer = ({numCardsToShow, cardsToShow, handleCardSelection}) => {
 const Card = ({name, emoji, handleCardSelection}) => {
   return (
     <div 
-      className='card flex justify-center items-center bg-white px-6 pb-4 m-4 cursor-pointer'
+      className='card flex justify-center items-center bg-white px-6 pb-4 m-4 cursor-pointer rounded-lg shadow-lg'
       id={name}
       onClick={handleCardSelection}>
         {emoji}
