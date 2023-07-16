@@ -3,7 +3,7 @@ import emojis from '../../data/emojis';
 import getRandomSubArray from '../../utils/getRandomSubArray';
 import randomizeArray from '../../utils/randomizeArray';
 
-const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
+const Board = ({numCardsInGame, numCardsToShow, setGameStatus, setShowModal}) => {
 
   const [cardsInGame, setCardsInGame] = useState([]);
   const [cardsToShow, setCardstoShow] = useState([]);
@@ -38,8 +38,9 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
     // Game over if card is clicked twice
     const repeatedPick = pickedCards.find(card => e.target.id === card.name);
     if (repeatedPick) {
-      // TODO: Implement game over component
       console.log('Game Over');
+      setGameStatus(2);
+      setShowModal(true);
       return;
     }
 
@@ -51,11 +52,12 @@ const Board = ({numCardsInGame, numCardsToShow, difficulty}) => {
     // The game is won if there are no more available cards to pick
     console.log(updatedAvailableCards);
     if (updatedAvailableCards.length === 0) {
-      // TODO: implement won game component
       setCurrentGameScore(currentGameScore+1);
       setPickedCards(updatedPickedCards);
       setCardsInGame(updatedAvailableCards);
       console.log('You won!');
+      setGameStatus(3);
+      setShowModal(true);
       return;
     }
 

@@ -7,13 +7,15 @@ import Modal from './Modal'
 const MainGame = ({numCardsInGame, numCardsToShow, gameStatus, setGameStatus}) => {
 
   const [showModal, setShowModal] = useState(false);
+
   return (
     <div className='bg-neutral flex flex-col h-full'>
       <TopBar />
       <Board
         numCardsInGame={numCardsInGame}
         numCardsToShow={numCardsToShow}
-        setGameStatus={setGameStatus}/>
+        setGameStatus={setGameStatus}
+        setShowModal={setShowModal}/>
       <BottomElement />
       
       {(showModal) ? (
