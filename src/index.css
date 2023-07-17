@@ -19,6 +19,7 @@
     --neutral-color: rgb(219,216,216);
     --box-shadow: 5px 5px;
     --border-black: 3px solid rgb(31,32,36);
+    --border-accent-btn: 3px solid rgb(214,248,66);
   }
   * {
     box-sizing: border-box;
@@ -43,8 +44,9 @@
   }
 
   .difficulty-btn {
-    background-color: var(--accent-color);
-    color: var(--main-color);
+    border: var(--border-accent-btn);
+    color: var(--accent-color);
+    transition: all 0.4s;
   }
   .help-btn {
     height: 50px;
@@ -81,5 +83,12 @@
   .card-status {
     box-shadow: 10px 5px 5px var(--neutral-color);
     transform: rotate(0.05turn);
+  }
+
+  /* ANIMATIONS AND TRANSITIONS */
+  .difficulty-btn:hover {
+    transform: translate(-5px, -5px);
+    background-color: var(--accent-color);
+    color: var(--main-color);
   }
 }

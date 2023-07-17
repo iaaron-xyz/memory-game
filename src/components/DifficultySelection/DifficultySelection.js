@@ -41,7 +41,7 @@ const DifficultyBtn = ({difficultyLevel, handleDifficultyBtn}) => {
   return (
     <button
       type="button"
-      className='difficulty-btn px-4 py-2 mx-4 text-2xl rounded-lg hover:bg-slate-50 drop-shadow-sm'
+      className='difficulty-btn px-4 py-2 mx-4 text-2xl rounded-lg drop-shadow-sm'
       onClick={handleDifficultyBtn}
       value={difficultyLevel}
       >
