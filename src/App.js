@@ -9,11 +9,9 @@ function App() {
   const [numCardsInGame, setNumCardsInGame] = useState(0);
   // cards to be displayed each turn
   const [numCardsToShow, setNumCardsToShow] = useState(0);
-  // easy, medium, hard
-  const [difficulty, setDifficulty] = useState('');
 
   return (
-    <div className="h-full">
+    <div className="h-full lilita">
       { (gameStatus) ? (
           <MainGame
             numCardsInGame={numCardsInGame}
@@ -24,8 +22,7 @@ function App() {
           <DifficultySelection
             setGameStatus={setGameStatus} 
             setNumCardsInGame={setNumCardsInGame}
-            setNumCardsToShow={setNumCardsToShow}
-            setDifficulty={setDifficulty}/>
+            setNumCardsToShow={setNumCardsToShow}/>
       )}
     </div>
   );

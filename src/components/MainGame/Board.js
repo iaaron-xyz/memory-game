@@ -101,7 +101,7 @@ const CardsContainer = ({numCardsToShow, cardsToShow, handleCardSelection}) => {
   return (
     <>
       {(numCardsToShow <= 6) ? (
-        <div className='cards-container-1 flex justify-center items-center flex-wrap border'>
+        <div className='cards-container-1 flex justify-center items-center flex-wrap'>
           {cardsToShow.map((cardChar) => {
             return (
               <Card 

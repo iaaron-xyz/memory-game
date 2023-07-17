@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: LilitaOne;
+  src: url(./fonts/LilitaOne-Regular.ttf);
+}
+.lilita {
+  font-family: LilitaOne;
+}
 
 @layer base {
-
   :root {
     --main-color: rgb(130,70,186);
     --accent-color: rgb(214,248,66);
@@ -39,7 +45,6 @@
   .difficulty-btn {
     background-color: var(--accent-color);
     color: var(--main-color);
-    font-weight: bold;
   }
   .help-btn {
     height: 50px;

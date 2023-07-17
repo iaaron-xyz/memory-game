@@ -1,6 +1,6 @@
 import {capitalize} from '../../utils/capitalize'
 
-const DifficultySelection = ({setGameStatus, setNumCardsInGame, setNumCardsToShow , setDifficulty}) => {
+const DifficultySelection = ({setGameStatus, setNumCardsInGame, setNumCardsToShow}) => {
 
   const handleDifficultyBtn = (e) => {
     // Number of cards to display
@@ -14,16 +14,15 @@ const DifficultySelection = ({setGameStatus, setNumCardsInGame, setNumCardsToSho
       setNumCardsInGame(10);
       setNumCardsToShow(8);
     }
-    
-    setDifficulty(e.target.value);
+
     // When the button clicked change the status of the game
     setGameStatus(1);
   }
 
   return (
     <div className="bg-main-color flex flex-col justify-center items-center h-full">
-      <h1 className="text-6xl mb-8 text-slate-50 z-10">Choose the Difficulty Level</h1>
-      <div className="z-10">
+      <h1 className="text-6xl mb-8 text-slate-50">Choose the Difficulty Level</h1>
+      <div>
         <DifficultyBtn 
           difficultyLevel='easy'
           handleDifficultyBtn={handleDifficultyBtn}/>
