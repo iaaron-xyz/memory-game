@@ -3,7 +3,7 @@ import emojis from '../../data/emojis';
 import getRandomSubArray from '../../utils/getRandomSubArray';
 import randomizeArray from '../../utils/randomizeArray';
 
-const Board = ({numCardsInGame, numCardsToShow, setGameStatus, currentGameScore, setCurrentGameScore, setShowModal}) => {
+const Board = ({numCardsInGame, numCardsToShow, setGameStatus, currentGameScore, setCurrentGameScore, setShowModal, updateTopRecord}) => {
 
   const [cardsInGame, setCardsInGame] = useState([]);
   const [cardsToShow, setCardstoShow] = useState([]);
@@ -47,6 +47,8 @@ const Board = ({numCardsInGame, numCardsToShow, setGameStatus, currentGameScore,
     const updatedPickedCards = [...pickedCards, cardsInGame.find(card => e.target.id === card.name)];
     // Remove the picked card from available cards
     const updatedAvailableCards = cardsInGame.filter(card => e.target.id !== card.name);
+    // uopdate top record -- plus 1 because the update occurs after this func calling
+    updateTopRecord(currentGameScore+1);
     
     // The game is won if there are no more available cards to pick
     console.log(updatedAvailableCards);
