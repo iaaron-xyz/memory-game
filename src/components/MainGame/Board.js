@@ -134,7 +134,7 @@ const CardsContainer = ({numCardsToShow, cardsToShow, handleCardSelection}) => {
 const Card = ({name, emoji, handleCardSelection}) => {
   return (
     <div 
-      className='card flex justify-center items-center bg-white px-6 pb-4 m-4 cursor-pointer rounded-lg shadow-lg'
+      className='card flex justify-center items-center bg-white px-6 pb-4 m-4 cursor-pointer rounded-lg shadow-lg border-4 border-slate-200'
       id={name}
       onClick={handleCardSelection}>
         {emoji}
