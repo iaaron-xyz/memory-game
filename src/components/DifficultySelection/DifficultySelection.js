@@ -20,7 +20,7 @@ const DifficultySelection = ({setGameStatus, setNumCardsInGame, setNumCardsToSho
   }
 
   return (
-    <div className="bg-main-color flex flex-col justify-center items-center h-full">
+    <div className="start-screen bg-main-color flex flex-col justify-center items-center h-full">
       <h1 className="text-6xl mb-8 text-slate-50">Choose the Difficulty Level</h1>
       <div>
         <DifficultyBtn 

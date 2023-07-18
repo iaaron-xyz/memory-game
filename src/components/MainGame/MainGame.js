@@ -29,7 +29,7 @@ const MainGame = ({numCardsInGame, numCardsToShow, gameStatus, setGameStatus}) =
   }
 
   return (
-    <div className='bg-neutral flex flex-col h-full'>
+    <div className='main-game flex flex-col h-full'>
       <TopBar
         topRecord={topRecord}/>
       <Board

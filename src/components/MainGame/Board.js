@@ -144,7 +144,7 @@ const Card = ({name, emoji, handleCardSelection}) => {
 
 const CurrentScore = ({currentGameScore}) => {
   return (
-    <div className='text-4xl text-center'>
+    <div className='text-accent-color mt-6 text-4xl text-center'>
       Current score:
       <br />
       <h3 className='text-6xl'>

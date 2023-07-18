@@ -29,7 +29,9 @@
     height: 100%;
   }
 
-  /* specific classes */
+  /**
+  * specific classes 
+  */
   .bg-main-color {
     background: var(--main-color);
   }
@@ -39,10 +41,45 @@
   .bg-neutral {
     background: var(--neutral-color);
   }
+  .text-main-color {
+    color: var(--main-color);
+  }
   .text-accent-color {
     color: var(--accent-color);
   }
 
+  /**
+  * Specific Components Styles
+  */
+  .card {
+    transition: transform 0.4s;
+  }
+  .start-screen {
+    background-color: #8a38c4;
+    opacity: 1;
+    background-image: radial-gradient(circle at center center, #ad45f7, #8a38c4), repeating-radial-gradient(circle at center center, #ad45f7, #ad45f7, 40px, transparent 80px, transparent 40px);
+    background-blend-mode: multiply;
+  }
+  .main-game {
+    background-color: #7145f7;
+    opacity: 1;
+    background-image:  radial-gradient(#aade1d 2px, transparent 2px), radial-gradient(#aade1d 2px, #7145f7 2px);
+    background-size: 80px 80px;
+    background-position: 0 0,40px 40px;
+  }
+  .modal {
+    background: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /**
+  * Specific elements Styles
+  */
   .difficulty-btn {
     border: var(--border-accent-btn);
     color: var(--accent-color);
@@ -70,22 +107,9 @@
     width: 200px;
     font-size: 6rem;
   }
-  /* Modal */
-  .modal {
-    background: rgba(0, 0, 0, 0.1);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   .card-status {
     box-shadow: 10px 5px 5px var(--neutral-color);
     transform: rotate(0.05turn);
-  }
-  .card {
-    transition: transform 0.4s;
   }
 
   /* ANIMATIONS AND TRANSITIONS */
