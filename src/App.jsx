@@ -1,34 +1,30 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import DifficultySelection from "./components/DifficultySelection/DifficultySelection";
+import MainGame from "./components/MainGame/MainGame";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // game status -> 0: not-started, 1: started, 2: lost-game, 3:win-game
+  const [gameStatus, setGameStatus] = useState(0);
+  // cards the player has to choose
+  const [numCardsInGame, setNumCardsInGame] = useState(0);
+  // cards to be displayed each turn
+  const [numCardsToShow, setNumCardsToShow] = useState(0);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="h-full lilita">
+      { (gameStatus) ? (
+          <MainGame
+            numCardsInGame={numCardsInGame}
+            numCardsToShow={numCardsToShow}
+            gameStatus={gameStatus}
+            setGameStatus={setGameStatus}/>
+        ) : (
+          <DifficultySelection
+            setGameStatus={setGameStatus} 
+            setNumCardsInGame={setNumCardsInGame}
+            setNumCardsToShow={setNumCardsToShow}/>
+      )}
+    </div>
   )
 }
 
