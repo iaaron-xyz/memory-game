@@ -1,161 +1,69 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-@font-face {
-  font-family: LilitaOne;
-  src: url(./fonts/LilitaOne-Regular.ttf);
-}
-.lilita {
-  font-family: LilitaOne;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
-@layer base {
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
   :root {
-    --main-color: rgb(130,70,186);
-    --accent-color: rgb(214,248,66);
-    --dark-color: rgb(31,32,36);
-    --bright-color: rgb(255, 255, 255);
-    --neutral-color: rgb(219,216,216);
-    --box-shadow: 5px 5px;
-    --border-black: 3px solid rgb(31,32,36);
-    --border-accent-btn: 3px solid rgb(214,248,66);
+    color: #213547;
+    background-color: #ffffff;
   }
-  * {
-    box-sizing: border-box;
-    /* border: 1px solid red; */
+  a:hover {
+    color: #747bff;
   }
-  html, body, #root {
-    height: 100%;
-  }
-
-  /**
-  * specific classes 
-  */
-  .bg-main-color {
-    background: var(--main-color);
-  }
-  .bg-accent {
-    background: var(--accent-color);
-  }
-  .bg-neutral {
-    background: var(--neutral-color);
-  }
-  .text-main-color {
-    color: var(--main-color);
-  }
-  .text-accent-color {
-    color: var(--accent-color);
-  }
-
-  /**
-  * Specific Components Styles
-  */
-  .card {
-    transition: transform 0.4s;
-  }
-  .start-screen {
-    background-color: #8a38c4;
-    opacity: 1;
-    background-image: radial-gradient(circle at center center, #ad45f7, #8a38c4), repeating-radial-gradient(circle at center center, #ad45f7, #ad45f7, 40px, transparent 80px, transparent 40px);
-    background-blend-mode: multiply;
-  }
-  .main-game {
-    background-color: #7145f7;
-    opacity: 1;
-    background-image:  radial-gradient(#aade1d 2px, transparent 2px), radial-gradient(#aade1d 2px, #7145f7 2px);
-    background-size: 80px 80px;
-    background-position: 0 0,40px 40px;
-  }
-  .modal {
-    background: rgba(0, 0, 0, 0.1);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /**
-  * Specific elements Styles
-  */
-  .difficulty-btn {
-    border: var(--border-accent-btn);
-    color: var(--accent-color);
-    transition: all 0.4s;
-  }
-  .help-btn {
-    height: 50px;
-    width: 50px;
-  }
-  .cards-container-1 {
-    width: 100%;
-  }
-  .cards-container-1 .card {
-    height: 275px;
-    width: 200px;
-    font-size: 6rem;
-  }
-  .cards-container-2 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-  .cards-container-2 .card {
-    height: 275px;
-    width: 200px;
-    font-size: 6rem;
-  }
-  .card-status {
-    box-shadow: 10px 5px 5px var(--neutral-color);
-    transform: rotate(0.05turn);
-  }
-  /* .show-message {
-    display: none;
-    transition
-  } */
-
-  /* ANIMATIONS AND TRANSITIONS */
-  .difficulty-btn:hover {
-    transform: translate(-5px, -5px);
-    background-color: var(--accent-color);
-    color: var(--main-color);
-  }
-  .card:hover {
-    transform: translateY(-20px);
-  }
-  @keyframes showUp {
-    from {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  @keyframes showOff {
-    from {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    to {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-  }
-  .show-message {
-    animation-name: showUp;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-  }
-  .hide-message {
-    animation-name: showOff;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-
-    transform: translateY(20px);
-    opacity: 0;
+  button {
+    background-color: #f9f9f9;
   }
 }
