@@ -49,6 +49,36 @@ const emojisCompact = [
     name: "Whale",
     code: "128011",
   },
+  {
+    emoji: "🐘",
+    name: "Elephant",
+    code: "128024",
+  },
+  {
+    emoji: "🐰",
+    name: "Rabbit Face",
+    code: "128048",
+  },
+  {
+    emoji: "🐹",
+    name: "Hamster Face",
+    code: "128057",
+  },
+  {
+    emoji: "🦢",
+    name: "Swan",
+    code: "129442",
+  },
+  {
+    emoji: "🐞",
+    name: "Lady Beetle",
+    code: "128030",
+  },
+  {
+    emoji: "🥭",
+    name: "Mango Emoji",
+    code: "129389",
+  },
 ]
 
 export default emojisCompact;
