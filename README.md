@@ -1,5 +1,5 @@
 # Game of memory cards - MemoryEmoji
-- **Important Note**: the most up-to-date version of this project can be found in the branch **[vite](https://github.com/iaaron-xyz/memory-game/tree/vite)**.
+- **Note**: There exist a version of this game that works exactly the same but made using `Vite` instead of `create-react-app`, you can find it in the **[vite branch](https://github.com/iaaron-xyz/memory-game/tree/vite)**.
 ## About the Game
 - Every turn, you must choose 1 card among a group of them; you can choose anyone you like.
 - Once you pick one, all the cards get shuffled, including the picked one.
